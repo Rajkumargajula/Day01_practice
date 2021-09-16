@@ -1,0 +1,104 @@
+Install Git in Linux :  
+	1. yum install git -y 
+Create Folder : 
+	1. mkdir -p /home/hgorla/harish
+	2. cd /home/hgorla/harish
+Initialize Git in project Folder 
+	1. git init
+		a. Initialized empty Git repository in /home/hgorla/harish/.git/
+	2. Check ls -a
+		[hgorla@hint113 harish]$ ls -a
+		.  ..  .git
+		
+	3. Now create Global Configurations
+		a. git config --global user.name "hint113"
+		b. git config --global user.email "hint113.com"
+	4. Now check the configuration
+		a. git config --list
+	5. Create one file from your pc 
+		a. vi day2.txt
+	6. Check the status of the file 
+		a. git status
+		[hgorla@hint113 harish]$ git status
+		# On branch master
+		#
+		# Initial commit
+		#
+		# Untracked files:
+		#   (use "git add <file>..." to include in what will be committed)
+		#
+		#       day2.txt
+		nothing added to commit but untracked files present (use "git add" to track)
+		[hgorla@hint113 harish]$
+		
+	7. Add to the stage Area
+		a. git add .
+		b. Now check the git status
+		[hgorla@hint113 harish]$ git status
+		# On branch master
+		#
+		# Initial commit
+		#
+		# Changes to be committed:
+		#   (use "git rm --cached <file>..." to unstage)
+		#
+		#       new file:   day2.txt
+		#
+		[hgorla@hint113 harish]$
+		
+	8. Now commit to local Area
+		[hgorla@hint113 harish]$ git commit -m "Commit on Sep 16"
+		[master (root-commit) 350164d] Commit on Sep 16
+		 1 file changed, 1 insertion(+)
+		 create mode 100644 day2.txt
+		a. Now check git status
+			[hgorla@hint113 harish]$ git status
+			# On branch master
+			nothing to commit, working directory clean
+			[hgorla@hint113 harish]$
+			
+Now Push to Central to Repo :
+	1.  git remote add origin https://github.com/HINTechnolgies/hintechrepo.git
+	2. git branch -M main
+	3. git push -u origin main
+	[hgorla@hint114 harish]$ git push -u origin main
+	Username for 'https://github.com': hintechnologies
+	Password for 'https://hintechnologies@github.com':
+	Counting objects: 5, done.
+	Delta compression using up to 2 threads.
+	Compressing objects: 100% (3/3), done.
+	Writing objects: 100% (3/3), 360 bytes | 0 bytes/s, done.
+	Total 3 (delta 0), reused 0 (delta 0)
+	To https://github.com/HINTechnolgies/hintechrepo.git
+	   449752a..add8012  main -> main
+	Branch main set up to track remote branch main from origin.
+	[hgorla@hint114 harish]$ ls -lrt
+	total 8
+	-rw-r--r--. 1 hgorla hint 111 Sep 16 15:46 harish.txt
+	-rw-r--r--. 1 hgorla hint 132 Sep 16 15:50 day2.txt
+	
+Login to the other developer box and pull the code (hint114):
+	1. Perform 1 to 4 steps 
+	2. git remote add orgin https://github.com/HINTechnolgies/hintechrepo.git
+	3. git pull orgin main
+		[hgorla@hint114 harish]$ git pull orgin main
+		remote: Enumerating objects: 14, done.
+		remote: Counting objects: 100% (14/14), done.
+		remote: Compressing objects: 100% (9/9), done.
+		remote: Total 14 (delta 1), reused 11 (delta 0), pack-reused 0
+		Unpacking objects: 100% (14/14), done.
+		From https://github.com/HINTechnolgies/hintechrepo
+		 * branch            main       -> FETCH_HEAD
+		[hgorla@hint114 harish]$ ls -lrt
+		total 8
+		-rw-r--r--. 1 hgorla hint 111 Sep 16 15:46 harish.txt
+		-rw-r--r--. 1 hgorla hint  64 Sep 16 15:46 day2.txt
+		[hgorla@hint114 harish]$
+		
+	4. Now modify the data and pull back to repo 
+	5. Perform 7 and 8 steps
+	6. Now do git push
+Go and validate in Central Repo :
+
+	
+	
